@@ -1277,7 +1277,8 @@ function masslooking_v2($data, $ig, $delay) {
     $counter2 = 0;
     $stories = [];
 
-    $story_per_request = getVarFromUser('Enter Story Count Per Request   mix 10 , max 100');
+   // $story_per_request = getVarFromUser('Enter Story Count Per Request   mix 10 , max 100');
+   $story_per_request = rand(10 , 40);
     output("Masslooking loop started.");
 
     $targets = [];
@@ -1367,12 +1368,14 @@ function masslooking_v2($data, $ig, $delay) {
                             // Save user story reels's to array
                             $reels = [];
                             $reels = $stories_reels->getReels()->getData();
-
+                            $users =[] ;
                             foreach ($reels as $r) {
                                 $items = [];
                                 $stories_loop = [];
                                 $items = $r->getItems();
-                                
+                                $json_data = json_decode($r);
+                                output($json_data->user->username);
+                                $users = $json_data->user->username;
                                 foreach ($items as $item) {
                                     if (!$item->getId()) {
                                         // Item is not valid
@@ -1444,6 +1447,7 @@ function masslooking_v2($data, $ig, $delay) {
                                 }
                             }
                         }
+                        break;
                         
                         if (($st_count > 0) && $last && $data[$key]['max_id'] == null) {
                             // Mark collected stories as seen
