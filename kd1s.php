@@ -1431,7 +1431,7 @@ function masslooking_v2($data, $ig, $delay) {
                                     $mark_seen_resp = $ig->story->markMediaSeen($stories);
                                     $begin_ms = strtotime(date("Y-m-d H:i:s"));
                                     
-                                    $st_count_seen = number_format($st_count, 0, '.', ' ');
+                                    $st_count_seen += number_format($st_count, 0, '.', ' ');
                                     $counter2 += 1;
                                     // output($st_count_seen . " stories marked as seen. / Debug: getReelsMediaFeed (" . $counter1 . "), markMediaSeen (" . $counter2 . ")."); 
                                     output($st_count_seen . " stories marked as seen.");
@@ -1447,7 +1447,6 @@ function masslooking_v2($data, $ig, $delay) {
                                 }
                             }
                         }
-                        break;
                         
                         if (($st_count > 0) && $last && $data[$key]['max_id'] == null) {
                             // Mark collected stories as seen
