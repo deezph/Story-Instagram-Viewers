@@ -1,4 +1,3 @@
-license-key (license key from your Dashboard on Nextpost.tech (https://nextpost.tech))
 username (your Instagram username)
 password
 proxy (3 to skip)
