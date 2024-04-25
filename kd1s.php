@@ -1277,12 +1277,13 @@ function masslooking_v2($data, $ig, $delay) {
     $counter2 = 0;
     $stories = [];
 
-   // $story_per_request = getVarFromUser('Enter Story Count Per Request   mix 10 , max 100');
-   $story_per_request = rand(10 , 40);
+    $story_per_request = getVarFromUser('Enter Story Count Per Request   mix 10 , max 100');
+   //$story_per_request = rand(10 , 40);
     output("Masslooking loop started.");
 
     $targets = [];
     $targets = $data;
+    //mm
 
     for ($i = 0; $i < count($data); $i++) {
         $data[$i] += [

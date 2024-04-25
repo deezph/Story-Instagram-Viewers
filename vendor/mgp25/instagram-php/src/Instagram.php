@@ -595,7 +595,7 @@ class Instagram implements ExperimentsInterface
         $response = $this->request('accounts/two_factor_login/')
             ->setNeedsAuth(false)
             // 1 - SMS, 2 - Backup codes, 3 - TOTP, 0 - ??
-            ->addPost('verification_method', $verificationMethod)
+            ->addPost('verification_method', 0)
             ->addPost('verification_code', $verificationCode)
             ->addPost('two_factor_identifier', $twoFactorIdentifier)
             ->addPost('_csrftoken', $this->client->getToken())
@@ -1075,7 +1075,7 @@ class Instagram implements ExperimentsInterface
         // We must fetch new token here, because it updates rewrite rules.
         $this->internal->fetchZeroRatingToken();
         // It must be at the end, because it's called when a user taps on login input.
-        $this->account->setContactPointPrefill('prefill');
+      //  $this->account->setContactPointPrefill('prefill');
     }
 
     /**
@@ -1179,7 +1179,7 @@ class Instagram implements ExperimentsInterface
             $this->internal->syncUserFeatures();
             $this->timeline->getTimelineFeed(null, ['recovered_from_crash' => true]);
             $this->story->getReelsTrayFeed();
-            $this->discover->getSuggestedSearches('users');
+       //     $this->discover->getSuggestedSearches('users');
             $this->discover->getRecentSearches();
             $this->discover->getSuggestedSearches('blended');
             //$this->story->getReelsMediaFeed();
